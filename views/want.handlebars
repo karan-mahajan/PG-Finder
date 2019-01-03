@@ -1,0 +1,61 @@
+<div style="background-color: black; color: white;">
+<center><h1 style="text-transform: uppercase;">Welcome {{user.name}}</h1></center>
+</div>
+<div class="row nt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">Enter Details</h1>
+      <form method="post" action="/users/search">
+        <div class="form-group">
+          <label>Location</label>
+          <select class="form-control" name="loc">
+            <option value="delhi">Delhi</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="chndigarh">Chandigarh</option>
+            <option value="chennai">Chennai</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <select class="form-control" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Budget</label>
+          <select class="form-control" name="budget">
+            <option value="5k">Less than 5000</option>
+            <option value="10k">Less than 10000</option>
+            <option value="15k">Less than 15000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Max Roommmate</label>
+          <select class="form-control" name="max">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Furnishing Type</label>
+          <select class="form-control" name="fur">
+            <option value="full">Fully Furnished</option>
+            <option value="semi">Semi Furnished</option>
+            <option value="not">Unfurnished</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Number of Bedrooms</label>
+          <select class="form-control" name="bed">
+            <option value="1bhk">1 BHK</option>
+            <option value="2bhk">2 BHK</option>
+            <option value="3bhk">3 BHK</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Search</button>
+      </form>
+    </div>
+  </div>
+</div>

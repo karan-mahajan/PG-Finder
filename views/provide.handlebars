@@ -1,0 +1,76 @@
+<style type="text/css">
+	label{
+		font-weight: bold;
+	}
+</style>
+{{#if errors}}
+	{{#each errors}}
+		<div class="alert alert-danger">{{msg}}</div>
+	{{/each}}
+{{/if}}
+<div style="background-color: black; color: white;">
+<center><h1 style="text-transform: uppercase;">Welcome {{user.name}}</h1></center>
+</div>
+<div class="row mt-5">
+	<div class="col-md-6 m-auto">
+		<div class="card card-body">
+			<h1 class="text-center mb-3">Enter Details Of Your PG</h1>
+			<form action="/users/add" method="post">
+				<div class="form-group">
+					<label>Enter Name Of Your PG</label>
+					<input type="text" name="pgname" class="form-control" placeholder="PG Name....">
+				</div>
+				<div class="form-group">
+					<label>Location</label>
+					<input type="text" name="loc1" class="form-control" placeholder="Location....">
+				</div>
+				<div class="form-group">
+					<label>Rent</label>
+					<input type="number" name="rent" placeholder="Rent...." class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Maximum</label>
+					<input type="number" name="max" class="form-control" min="1" max="4" placeholder="Maximum Roommates....">
+				</div>
+				<div class="form-group">
+					<label>Gender</label>
+					<select name="gender">
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Wifi</label>
+  					<div class="inputGroup">
+    					<input name="radio" type="radio" value="Enabled">
+    						<label for="radio1">Enabled</label>
+  					</div>
+  					<div class="inputGroup">
+    					<input name="radio" type="radio" value="Disabled">
+    						<label for="radio2">Disabled</label>
+  					</div>
+				</div>
+				<div class="form-group">
+					<label>Furniture</label>
+  					<div class="inputGroup">
+    					<input name="furniture" type="radio" value="Fully Furnished">
+    						<label for="radio1">Fully Furnished</label>
+  					</div>
+  					<div class="inputGroup">
+    					<input name="furniture" type="radio" value="Semi Furnished">
+    						<label for="radio2">Semi Furnished</label>
+  					</div>
+  					<div class="inputGroup">
+    					<input name="furniture" type="radio" value="Unfurnished">
+    						<label for="radio3">Unfurnished</label>
+  					</div>
+				</div>
+				<div class="form-group">
+					<label>Nearby Places</label>
+					<input type="text" name="nearby" class="form-control" placeholder="Enter Nearby Places....">
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">Submit Your PG</button>
+			</form>
+		</div>
+	</div>
+</div>

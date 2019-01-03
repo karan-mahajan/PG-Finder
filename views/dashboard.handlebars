@@ -1,48 +1,76 @@
-<div class="w3-container" id="apartment">
-    <h2 class="w3-text-red">Flat</h2>
+<head>
+  <link rel="stylesheet" type="text/css" href="/css/img11.css">
+</head>
+{{#each items}}
+
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
 </div>
-<div class="w3-row-padding w3-section">
+
+
+<center><h2>{{this.pgname}} in {{this.loc1}}</h2></center>
+<h3 style="margin-left: 40px; font-weight: bold;">For {{this.gender}}</h3>
+<h3 style="margin-left: 40px; font-weight: bold;">Rent : {{this.rent}}</h3>
+<div class="w3-row-padding w3-section" style="margin-left: 500px;">
     <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="/img/livingroom.jpg" style="width:90%;cursor:pointer" title="Living room">
+      <img id="myImg" class="demo w3-opacity w3-hover-opacity-off" src="/img/livingroom.jpg" style="width:90%;cursor:pointer" title="Living room" alt="Living Room">
     </div>
     <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="/img/diningroom.jpg" style="width:90%;cursor:pointer" title="Dining room">
-    </div>
-    <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="/img/bedroom.jpg" style="width:90%;cursor:pointer" title="Bedroom">
-    </div>
-    <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="/img/livingroom2.jpg" style="width:90%;cursor:pointer" title="Second Living Room">
+      <img id="myImg1" class="demo w3-opacity w3-hover-opacity-off" src="/img/diningroom.jpg" style="width:90%;cursor:pointer" title="Dining room" alt="Dining Room">
     </div>
 </div>
 <hr>
+
 <div class="w3-container">
-    <h4><strong>The space</strong></h4>
-    <div class="w3-row w3-large">
+<h4><strong>Details</strong></h4>
+<div class="w3-row w3-large">
       <div class="w3-col s6">
         <ul>
-          <li><p><i>Max people: 4</i></p></li>
-          <li><p><i>Bathrooms: 2</i></p></li>
-          <li><p><i>Bedrooms: 1</i></p></li>
-        </ul>
-      </div>
-    </div>
-<hr>    
-    <h4><strong>Amenities</strong></h4>
-    <div class="w3-row w3-large">
-      <div class="w3-col s6">
-        <ul>
-          <li><p><i>Shower</i></p></li>
-          <li><p><i>Wifi</i></p></li>
+          <li><p><i>Max people: {{this.max}}</i></p></li>
+          <li><p><i>Wifi {{this.wifi}}</i></p></li>
           <li><p><i>Tv</i></p></li>
         </ul>
       </div>
       <div class="w3-col s6">
         <ul>
-          <li><p><i>Kitchen</i></p></li>
-          <li><p><i>Heating</i></p></li>
-          <li><p><i>Accessible</i></p></li>
+          <li><p><i>{{this.furniture}}</i></p></li>
+          <li><p><i>Nearby Places : {{this.nearby}}</i></p></li>
         </ul>
       </div>
 </div>
-    <hr>
+<form method="get" >
+  <button type="submit" class="btn btn-primary btn-block">Register</button>
+</form>
+<hr>
+{{/each}}
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var img1 = document.getElementById('myImg1');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+img1.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>

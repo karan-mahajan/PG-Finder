@@ -3,7 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
-var Pg = require('../models/pg');
+var Pg = require('../models/paras');
 /* GET users listing. */
 
 router.get('/register', function(req, res, next) {
@@ -14,9 +14,46 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
-router.get('/profile', function(req,res,next){
-  res.render('profile');
-})
+router.post('/add', function(req,res,next){
+  var pgname = req.body.pgname;
+  var loc1 = req.body.loc1;
+  var rent = req.body.rent;
+  var max = req.body.max;
+  var wifi = req.body.radio;
+  var gender = req.body.gender;
+  var nearby = req.body.nearby;
+  var furniture = req.body.furniture;
+  //Validation
+  req.checkBody('pgname','PG Name is required').notEmpty();
+  req.checkBody('loc1','Location is required').notEmpty();
+  req.checkBody('rent','Rent is required').notEmpty();
+  req.checkBody('max','Maximum Roommates required').notEmpty();
+  req.checkBody('nearby','Provide nearby places').notEmpty();
+  var errors = req.validationErrors();
+  if(errors){
+    res.render('provider',{errors:errors});
+  }
+  else{
+    var newPG = new Pg({
+    pgname: pgname,
+    loc1: loc1,
+    rent: rent,
+    max: max,
+    gender: gender,
+    wifi: wifi,
+    nearby: nearby,
+    furniture: furniture
+  });
+    Pg.addPG(newPG,function(err,pg){
+      if(err) throw err;
+      console.log(pg);
+    });
+    req.flash('success_msg', 'PG Added');
+    res.redirect('/users/dashboard');
+  }
+});
+
+
 router.post('/register', function(req, res, next) {
   var name = req.body.name;
   var email = req.body.email;
@@ -87,15 +124,31 @@ passport.deserializeUser(function(id, done){
   });
 });
 router.post('/login', passport.authenticate('local', {successRedirect:'/users/dashboard', failureRedirect:'/users/login',failureFlash: true}), function(req,res){
-res.render('/users/dashboard');
+res.redirect('/users/dashboard');
 });
 
-router.get('/dashboard', ensureAuthenticated, function(req, res) {
-  if(req.user.selftype==1){
-    res.render('provider');
-  } else{
-    res.render('gainer');
-  }
+router.get('/dashboard', ensureAuthenticated, function(req,res){
+  var pg_array = [];
+  Pg.returnPG(function(err,cursor){
+    //if(err) throw err;
+    if(cursor){
+      cursor.forEach(function(doc,err){
+        console.log(doc);
+        pg_array.push(doc);
+      });
+    }
+  });
+  res.render('dashboard',{items:pg_array});
+});
+
+//Need PG
+router.get('/want', function(req,res){
+  res.render('want');
+});
+
+//Add PG
+router.get('/provide',function(req,res){
+  res.render('provide');
 });
 
 function ensureAuthenticated(req, res, next) {
