@@ -8,9 +8,6 @@
 		<div class="alert alert-danger">{{msg}}</div>
 	{{/each}}
 {{/if}}
-<div style="background-color: black; color: white;">
-<center><h1 style="text-transform: uppercase;">Welcome {{user.name}}</h1></center>
-</div>
 <div class="row mt-5">
 	<div class="col-md-6 m-auto">
 		<div class="card card-body">
@@ -31,6 +28,14 @@
 				<div class="form-group">
 					<label>Maximum</label>
 					<input type="number" name="max" class="form-control" min="1" max="4" placeholder="Maximum Roommates....">
+				</div>
+				<div class="form-group">
+					<label>Owner Name</label>
+					<input type="text" name="owner" class="form-control" placeholder="Enter Your Name....">
+				</div>
+				<div class="form-group">
+					<label>Contact</label>
+					<input type="text" name="contact" class="form-control" placeholder="Contact....">
 				</div>
 				<div class="form-group">
 					<label>Gender</label>
@@ -69,7 +74,7 @@
 					<label>Nearby Places</label>
 					<input type="text" name="nearby" class="form-control" placeholder="Enter Nearby Places....">
 				</div>
-				<button type="submit" class="btn btn-primary btn-block">Submit Your PG</button>
+				<center><button type="submit" class="btn btn-primary mx-auto">Submit Your PG</button></center>
 			</form>
 		</div>
 	</div>

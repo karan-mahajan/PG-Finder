@@ -1,0 +1,210 @@
+<style>
+.hero-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  margin-top: -250px;
+  color: black;
+}
+
+.hero-text button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hero-text button:hover {
+  background-color: #555;
+  color: white;
+}
+
+  .filter-search {
+  position: relative;
+  z-index: 2;
+}
+
+.filter-form {
+  padding: 31px;
+  background: #30caa0;
+  border-radius: 3px;
+}
+
+.filter-form input {
+  background: #fff;
+  height: 46px;
+  border: none;
+  border-radius: 2px;
+  width: calc(43% - 20px);
+  margin-right: 20px;
+  padding: 5px 20px;
+  font-size: 14px;
+}
+
+.filter-form select {
+  background: #fff;
+  height: 46px;
+  border: none;
+  border-radius: 2px;
+  width: calc(20% - 20px);
+  margin-right: 20px;
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+.filter-form .fs-submit {
+  background: #333;
+  width: 16%;
+  border-radius: 2px;
+}
+
+.site-btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  min-width: 170px;
+  text-align: center;
+  background: #30caa0;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+
+.section-title {
+  margin-bottom: 60px;
+}
+
+.section-title h3 {
+  font-weight: 400;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+.set-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.spad {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.text-white h1,
+.text-white h2,
+.text-white h3,
+.text-white h4,
+.text-white h5,
+.text-white p,
+.text-white span,
+.text-white li,
+.text-white a {
+  color: #fff;
+}
+
+.propertie-item {
+  height: 270px;
+  position: relative;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.propertie-item:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,303030+100&0+32,0.9+100 */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(32%, rgba(15, 15, 15, 0)), to(rgba(48, 48, 48, 0.9)));
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(15, 15, 15, 0) 32%, rgba(48, 48, 48, 0.9) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(15, 15, 15, 0) 32%, rgba(48, 48, 48, 0.9) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#e6303030', GradientType=0);
+  /* IE6-9 */
+}
+.propertie-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 30px;
+  padding-bottom: 20px;
+  z-index: 5;
+}
+
+.propertie-info h5 {
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.propertie-info p {
+  margin-bottom: 0;
+}
+
+.propertie-info p i {
+  color: #30caa0;
+  margin-right: 5px;
+}
+
+.propertie-info .info-warp {
+  float: left;
+}
+
+.propertie-info .price {
+  float: right;
+  background: #30caa0;
+  padding: 12px;
+  min-width: 110px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.sale-notic,
+.rent-notic {
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: #e94646;
+  padding: 7px 13px;
+  display: inline-block;
+  border-radius: 2px;
+  position: relative;
+  z-index: 3;
+}
+
+.rent-notic {
+  background: #eca643;
+}
+
+.propertie-item .sale-notic,
+.propertie-item .rent-notic {
+  margin: 30px;
+}
+
+</style>

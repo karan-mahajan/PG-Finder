@@ -23,6 +23,12 @@ var PgSchema = mongoose.Schema({
 	},
 	gender: {
 		type: String
+	},
+	owner: {
+		type: String
+	},
+	contact: {
+		type: Number
 	}
 });
 
@@ -34,4 +40,9 @@ module.exports.addPG = function(newPG,callback){
 
 module.exports.returnPG = function(callback){
 	Pg.find(callback);
+}
+
+module.exports.getPgByName = function(pgname,callback){
+	var query = {pgname:pgname};
+	Pg.findOne(query,callback);
 }

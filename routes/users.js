@@ -23,6 +23,8 @@ router.post('/add', function(req,res,next){
   var gender = req.body.gender;
   var nearby = req.body.nearby;
   var furniture = req.body.furniture;
+  var owner = req.body.owner;
+  var contact = req.body.contact;
   //Validation
   req.checkBody('pgname','PG Name is required').notEmpty();
   req.checkBody('loc1','Location is required').notEmpty();
@@ -42,7 +44,9 @@ router.post('/add', function(req,res,next){
     gender: gender,
     wifi: wifi,
     nearby: nearby,
-    furniture: furniture
+    furniture: furniture,
+    owner: owner,
+    contact:contact
   });
     Pg.addPG(newPG,function(err,pg){
       if(err) throw err;
@@ -133,23 +137,53 @@ router.get('/dashboard', ensureAuthenticated, function(req,res){
     //if(err) throw err;
     if(cursor){
       cursor.forEach(function(doc,err){
-        console.log(doc);
+        
         pg_array.push(doc);
-      });
+      },res.render('dashboard',{items:pg_array}));
     }
   });
-  res.render('dashboard',{items:pg_array});
+  
 });
 
+router.get('/all',function(req,res){
+  var pg_array = [];
+  Pg.returnPG(function(err,cursor){
+    if(cursor){
+      cursor.forEach(function(doc,err){
+        pg_array.push(doc);
+      },res.render('all',{items:pg_array}));
+    }
+  });
+});
 //Need PG
 router.get('/want', function(req,res){
   res.render('want');
 });
 
 //Add PG
-router.get('/provide',function(req,res){
+router.get('/provide', ensureAuthenticated, function(req,res){
   res.render('provide');
 });
+
+
+router.get('/profile',ensureAuthenticated, function(req,res){
+  res.render('profile');
+});
+
+router.get('/details/:pgname', function(req,res){
+  var pgname = req.params.pgname;
+  Pg.getPgByName(pgname,function(err,pg){
+    if(err) throw err;
+    if(pg){
+      res.render('details',{pg:pg});
+    }
+    else
+    {
+      console.log('Not Found');
+    }
+  });
+});
+
 
 function ensureAuthenticated(req, res, next) {
   if(req.isAuthenticated()) {
