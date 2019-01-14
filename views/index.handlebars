@@ -2,15 +2,42 @@
       <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
           <h1 class="mx-auto my-0 text-uppercase">PG Finder</h1>
-          <!-- <h2 class="text-white-50 mx-auto mt-2 mb-5">Need a place for rent ?</h2>
-          <form action="/search" method="post">
+          <h2 class="text-white-50 mx-auto mt-2 mb-5">Need a place for rent ?</h2>
           	<div class="form-group">
-          		<input type="text" name="search" placeholder="Enter Location..." class="form-control">
+          		<input type="text" id="mySearch" name="search" placeholder="Enter Location..." onkeyup="myFunction()" title="Type Location"  class="form-control">
+              <ul id="myMenu" onmouseout="myFunction2()" style="display: none;">
+                <li><a href="/users/city/Chennai">Chennai</a></li>
+                <li><a href="/users/city/Delhi">Delhi</a></li>
+                <li><a href="users/city/Mumbai">Mumbai</a></li>
+                <li><a href="/users/city/Baddi">Baddi</a></li>
+                <li><a href="/users/city/Chandigarh">Chandigarh</a></li>
+                <li><a href="/users/city/Kolkata">Kolkata</a></li>
+                <li><a href="/users/city/Gwalior">Gwalior</a></li>
+              </ul>
           	</div>
-          		<button type="button" class="btn btn-primary mx-auto">Search</button>
-          </form> -->
         </div>
       </div>
-    </header
+    </header>
 
-    
+<script>
+function myFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  ul.style.display = 'block';
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+function myFunction2() {
+  ul = document.getElementById("myMenu")
+  ul.style.display = 'none';
+}
+</script>

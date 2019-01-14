@@ -145,6 +145,22 @@ router.get('/dashboard', ensureAuthenticated, function(req,res){
   
 });
 
+ 
+router.get('/city/:cname', function(req,res){
+  var cname = req.params.cname;
+  Pg.getPgByLocation(cname,function(err,pg){
+    if(err) throw err;
+    if(pg)
+    {
+      res.render('city',{pg:pg});
+    }
+    else{
+      console.log('Not Found');
+    }
+  });
+});
+
+
 router.get('/all',function(req,res){
   var pg_array = [];
   Pg.returnPG(function(err,cursor){

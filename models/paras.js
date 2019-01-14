@@ -46,3 +46,8 @@ module.exports.getPgByName = function(pgname,callback){
 	var query = {pgname:pgname};
 	Pg.findOne(query,callback);
 }
+
+module.exports.getPgByLocation = function(cname,callback){
+	var query = {loc1:cname};
+	Pg.find(query,callback);
+}

@@ -1,73 +1,55 @@
-  <!--/ Form Search Star /-->
-  <!--/ Form Search End /-->
-  <!--/ Carousel Star /-->
-      
-  <div class="intro intro-carousel">
-    <div id="carousel" class="owl-carousel owl-theme">
-      {{#each items}}
-      <div class="carousel-item-a intro-item bg-image" style="background-image: url(../img/slide-1.jpg)">
-        <div class="overlay overlay-a"></div>
-        <div class="intro-content display-table">
-          <div class="table-cell">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8">
-                  <div class="intro-body">
-                    <p class="intro-title-top" style="font-size: 25px; text-transform: bold;">{{this.loc1}}
-                      </p>
-                    <h1 class="intro-title mb-4">
-                      <span class="color-b"></span>{{this.pgname}}</h1>
-                    <p class="intro-subtitle intro-price">
-                      <span class="price-a">$ {{this.rent}}</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-  </div>
-  
-  <!--/ Carousel end /-->
-  <!--/ Property Star /-->
-  <section class="section-property section-t8">
+<div class="click-closed"></div>
+  <!--/ Form Search Star /--><!--/ Nav End /-->
+
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="title-wrap d-flex justify-content-between">
-            <div class="title-box">
-              <h2 class="title-a">Latest Properties</h2>
-            </div>
-            <div class="title-link">
-              <a href="/users/all">All Property
-                <span class="ion-ios-arrow-forward"></span>
-              </a>
-            </div>
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Our Amazing Properties</h1>
+            <span class="color-text-a">Grid Properties</span>
           </div>
         </div>
       </div>
-      <div id="property-carousel" class="owl-carousel owl-theme">
-        {{#each items}}
-        <div class="carousel-item-b">
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Property Grid Star /-->
+  <section class="property-grid grid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="grid-option">
+            <form>
+              <select class="custom-select">
+                <option selected>All</option>
+                <option value="1"><a href="/users/dashboard">Low to High</a></option>
+                <option value="2">High to Low</option>
+                <option value="3">Popularity</option>
+              </select>
+            </form>
+          </div>
+        </div>
+        {{#each pg}}
+        <div class="col-md-4">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="/img/img/property-8.jpg" alt="" class="img-a img-fluid">
+              <img src="/img/img/property-1.jpg" alt="" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">
                 <div class="card-header-a">
-                  <h2 class="card-title-a" style="font-size: 40px;">
-                    {{this.pgname}}
+                  <h2 class="card-title-a">
+                    <a href="details/{{this.pgname}}">{{this.pgname}}</a>
                   </h2>
                 </div>
                 <div class="card-body-a">
                   <div class="price-box d-flex">
                     <span class="price-a">rent | {{this.rent}}</span>
                   </div>
-                  <a href="details/{{this.pgname}}" class="link-a" style="font-size: 20px;">Click here to view
+                  <a href="property-single.html" class="link-a">Click here to view
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </div>
@@ -93,9 +75,17 @@
           </div>
         </div>
         {{/each}}
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+        </div>
+      </div>
     </div>
   </section>
-  <section class="section-footer">
+  <!--/ Property Grid End /-->
+
+  <!--/ footer Star /--><section class="section-footer">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-4">
@@ -140,15 +130,3 @@
     </div>
   </footer>
   <!--/ Footer End /-->
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
-  <!-- JavaScript Libraries -->
-  <script src="/css/lib/jquery/jquery.min.js"></script>
-  <script src="/css/lib/jquery/jquery-migrate.min.js"></script>
-  <script src="/css/lib/popper/popper.min.js"></script>
-  <script src="/css/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="/css/lib/easing/easing.min.js"></script>
-  <script src="/css/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="/css/lib/scrollreveal/scrollreveal.min.js"></script>
-  <script src="contactform/contactform.js"></script>
-  <script src="/js/main.js"></script>
